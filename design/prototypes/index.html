@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Beehaven — Section 3.8 Layout Prototypes</title>
+    <style>
+      body { font-family: system-ui, sans-serif; background: #0b0e14; color: #f1f5f9; margin: 0; padding: 24px; }
+      .tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+      button { background: #1b2230; color: #f1f5f9; border: 1px solid #6b7c95; border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+      button.active { border-color: #60a5fa; color: #60a5fa; }
+      .frame { background: #131822; border: 1px solid #6b7c95; border-radius: 10px; padding: 16px; min-height: 420px; }
+      .grid-a { display: grid; grid-template-columns: 260px 1fr; gap: 16px; }
+      .grid-b { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .card { background: #1b2230; border: 1px solid #6b7c95; border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 13px; }
+      .warn { border-color: #fbbf24; color: #fbbf24; }
+    </style>
+  </head>
+  <body>
+    <h1>Beehaven Layout Prototypes (Section 3.8)</h1>
+    <div class="tabs">
+      <button id="bA" class="active" onclick="show('A')">Prototype A: Priority Split Cockpit (Selected)</button>
+      <button id="bB" onclick="show('B')">Prototype B: 4-Column Kanban</button>
+      <button id="bC" onclick="show('C')">Prototype C: Top Matrix + Bottom Terminal</button>
+    </div>
+    <div id="pA" class="frame">
+      <p><strong>Selected for v1:</strong> Places Waiting-for-you tasks at the top of a narrow left rail while dedicating 75% of screen area to single-screen review (Terminal, Diff, Tests, Conflicts) + bottom global summary bar.</p>
+      <div class="grid-a">
+        <div>
+          <div class="card warn">▲ 3. Add login validation — Waiting for you</div>
+          <div class="card">◐ 1. Parser streaming — Running</div>
+          <div class="card">✓ 2. Refactor auth — Approved</div>
+          <div class="card">◆ 4. Update API docs — Needs review</div>
+        </div>
+        <div class="card">
+          <h3>Task 3: Add login validation [▲ Waiting for you]</h3>
+          <p>[Terminal] [Changes] [Tests] [Conflicts (1)]</p>
+          <pre style="background:#0b0e14;padding:12px;border-radius:6px;">[Claude Code] Should rate-limited login attempts return HTTP 429? (y/n):</pre>
+          <button>✓ Approve</button> <button>Ask agent to revise</button> <button>⊘ Discard</button>
+        </div>
+      </div>
+    </div>
+    <div id="pB" class="frame" style="display:none">
+      <p><strong>Rejected:</strong> Multi-column Kanban forces modal popups to read diffs and terminals, slowing down review.</p>
+      <div class="grid-b">
+        <div><h4>▲ Waiting (1)</h4><div class="card warn">3. Login</div></div>
+        <div><h4>◐ Running (1)</h4><div class="card">1. Parser</div></div>
+        <div><h4>◆ Review (1)</h4><div class="card">4. Docs</div></div>
+        <div><h4>✓ Approved (1)</h4><div class="card">2. Refactor</div></div>
+      </div>
+    </div>
+    <div id="pC" class="frame" style="display:none">
+      <p><strong>Rejected:</strong> Always-visible conflict matrix vertically crushes terminal and diff height on 13-inch laptops.</p>
+      <div class="card">Matrix pinned on top (takes 40% vertical height)</div>
+      <div class="card">Cramped 12-row terminal below</div>
+    </div>
+    <script>
+      function show(which) {
+        for (const k of ['A', 'B', 'C']) {
+          document.getElementById('p' + k).style.display = k === which ? 'block' : 'none';
+          document.getElementById('b' + k).className = k === which ? 'active' : '';
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@import "@xterm/xterm/css/xterm.css";
+
+:root {
+  --af-font-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --af-font-mono: "Cascadia Mono", "Consolas", "SFMono-Regular", ui-monospace, monospace;
+  --af-radius-control: 6px;
+  --af-radius-panel: 10px;
+  --af-bg: #0b0e14;
+  --af-surface: #131822;
+  --af-surface-elevated: #1b2230;
+  --af-text: #f1f5f9;
+  --af-muted: #94a3b8;
+  --af-border: #6b7c95;
+  --af-accent: #60a5fa;
+  --af-info: #38bdf8;
+  --af-attention: #fbbf24;
+  --af-success: #4ade80;
+  --af-danger: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--af-bg);
+  color: var(--af-text);
+  font-family: var(--af-font-ui);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+code,
+pre,
+.af-mono {
+  font-family: var(--af-font-mono);
+}
+
+/* High-contrast accessible focus ring (>= 4.5:1) */
+:focus-visible {
+  outline: 2px solid var(--af-accent);
+  outline-offset: 2px;
+}
+
+.af-surface {
+  background-color: var(--af-surface);
+  border-color: var(--af-border);
+}
+
+.af-surface-elevated {
+  background-color: var(--af-surface-elevated);
+  border-color: var(--af-border);
+}
+
+.af-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--af-radius-control);
+  border: 1px solid var(--af-border);
+  background-color: var(--af-surface-elevated);
+  color: var(--af-text);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.af-btn:hover:not(:disabled) {
+  border-color: var(--af-accent);
+}
+
+.af-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.af-btn-primary {
+  border-color: var(--af-accent);
+  color: var(--af-accent);
+}
+
+.af-btn-success {
+  border-color: var(--af-success);
+  color: var(--af-success);
+}
+
+.af-btn-danger {
+  border-color: var(--af-danger);
+  color: var(--af-danger);
+}
+
+.af-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--af-radius-control);
+  border: 1px solid var(--af-border);
+  background-color: var(--af-bg);
+  color: var(--af-text);
+  font-size: 13px;
+}
+
+/* Calm by default & respect reduced motion (Section 3.1 & 3.6) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

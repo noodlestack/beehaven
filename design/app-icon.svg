@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="224" fill="#0B0E14"/>
+  <rect x="56" y="56" width="912" height="912" rx="184" fill="#131822" stroke="#FBBF24" stroke-width="26"/>
+  <!-- Central Honeycomb Cluster -->
+  <!-- Top Hex -->
+  <polygon points="512,180 632,250 632,390 512,460 392,390 392,250" fill="#1B2230" stroke="#FBBF24" stroke-width="28" stroke-linejoin="round"/>
+  <!-- Bottom Left Hex -->
+  <polygon points="368,430 488,500 488,640 368,710 248,640 248,500" fill="#1B2230" stroke="#38BDF8" stroke-width="28" stroke-linejoin="round"/>
+  <!-- Bottom Right Hex -->
+  <polygon points="656,430 776,500 776,640 656,710 536,640 536,500" fill="#1B2230" stroke="#4ADE80" stroke-width="28" stroke-linejoin="round"/>
+  <!-- Merge Convergence Node at Bottom -->
+  <path d="M368 710 L512 830 L656 710" fill="none" stroke="#F1F5F9" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="512" cy="320" r="42" fill="#FBBF24"/>
+  <circle cx="368" cy="570" r="42" fill="#38BDF8"/>
+  <circle cx="656" cy="570" r="42" fill="#4ADE80"/>
+  <circle cx="512" cy="834" r="46" fill="#4ADE80" stroke="#0B0E14" stroke-width="14"/>
+</svg>

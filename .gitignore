@@ -1,0 +1,20 @@
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+coverage/
+*.local
+
+# Rust / Tauri
+src-tauri/target/
+target/
+**/*.rs.bk
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+
+# Temp test artifacts
+.beehaven-temp/

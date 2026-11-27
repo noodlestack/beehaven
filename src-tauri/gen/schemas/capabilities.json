@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Minimum required capabilities for the Beehaven main window (core IPC + folder picker dialog only; zero shell permissions).","local":true,"windows":["main"],"permissions":["core:default","dialog:allow-open","dialog:allow-save"]}}
